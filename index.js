@@ -18,8 +18,8 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   // The logic: if someone says "hello", say "world"
-  if (message.content.toLowerCase() === "hello") {
-    message.reply("world");
+  if (message.content.toLowerCase() === "gi") {
+    message.reply("em");
   }
 });
 
