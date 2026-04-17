@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 require("dotenv").config();
+const responses = require("./responses.json");
 
 const client = new Client({
   intents: [
@@ -14,12 +15,12 @@ client.once("ready", () => {
 });
 
 client.on("messageCreate", (message) => {
-  // Ignore messages from the bot itself
   if (message.author.bot) return;
 
-  // The logic: if someone says "hello", say "world"
-  if (message.content.toLowerCase() === "gi") {
-    message.reply("em");
+  const content = message.content.toLowerCase();
+
+  if (responses[content]) {
+    message.reply(responses[content]);
   }
 });
 
