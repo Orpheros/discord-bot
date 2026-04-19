@@ -19,8 +19,11 @@ client.on("messageCreate", (message) => {
 
   const content = message.content.toLowerCase();
 
-  if (responses[content]) {
-    message.reply(responses[content]);
+  for (const [trigger, response] of Object.entries(responses)) {
+    if (content.includes(trigger)) {
+      message.reply(response);
+      break;
+    }
   }
 });
 
